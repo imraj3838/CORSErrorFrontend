@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import './App.css'
+import { Link } from "react-router-dom";
+import DetailsCard from "./DetailsCard";
 
 function Course() {
   const [selectedCourse, setSelectedCourse] = useState(null);
-  const [showAllCards, setShowAllCards] = useState(true);
+  
 
   const courses = [
     {
@@ -44,40 +46,24 @@ function Course() {
     }
   ];
 
-  const handleCourseClick = (id)=>{
-if(selectedCourse === id){
-  setShowAllCards (true)
-  setSelectedCourse(null)
-}else{
-  setShowAllCards(false)
-  setSelectedCourse(id)
-}
-  }
   return (
-    <>
-      <h1 id="coursehead">COURSES</h1>
-      
+   <Link to={`/courses/${courses.id}`}>
+   <>
+    <h1 id="coursehead">COURSES</h1>
       <div id="container">
-        {showAllCards && courses.map(course => (
-          <div id="course-card" className={showAllCards ? 'full-width' : '100%'} onClick={() => handleCourseClick(course.id)}>
+        {courses.map(course => (
+          <div id="course-card" >
             <img className="course-img" src={course.image} alt="title" />
             <div className="card-details">
               <h2 className="course-title">{course.title}</h2>
+              <p>{course.id}</p>
             </div>
           </div>
         ))}
-        {!showAllCards && courses.map(course => (
-          selectedCourse === course.id &&
-          <div id="course-card"   key={course.id} onClick={() => handleCourseClick(course.id)}>
-            <img className="course-img" src={course.image} alt="title" />
-            <div className="card-details">
-              <h2 className="course-title">{course.title}</h2>
-              <p className="course-description">{course.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+       </div>
     </>
+    {/* <DetailsCard/> */}
+    </Link>
   );
 }
 
