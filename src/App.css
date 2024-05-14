@@ -7,6 +7,7 @@
   background-color: black;
   height: 80px;
   width: 100%;
+  
  }
  a{
   text-decoration: none;
@@ -18,7 +19,7 @@
  .active:hover{
   background-color: #007bff;
   
- width: 100px;
+ width: 150px;
   margin-bottom: 15px;
   text-align: center;
  }
@@ -59,6 +60,16 @@ border: 1px solid black;
   text-align: center;
   background-color:white;
   width: 45%;
+  @media (max-width:900px) {
+    width: calc(80% - 60px - 20px);
+  }
+  @media (max-width:900px) {
+    width: calc(50% - 60px - 20px);
+  }
+  @media (max-width:570px) {
+    width: calc(100% - 60px - 20px);
+  }
+
   color: black;
   padding: 10px;
   margin: 30px auto;
@@ -69,6 +80,7 @@ border: 1px solid black;
   background: linear-gradient(to right, red, yellow);
   animation: changeColor 5s forwards;
   padding: 10px;
+  max-width: 100%;
 }
 
 @keyframes changeColor {
@@ -205,6 +217,19 @@ border: 1px solid black;
     justify-content: center;
     align-items: center;
     margin: 0px  auto;
+    
+    @media (max-width: 890px) {
+      #course-card {
+        width: calc(50% - 100px );
+      }
+    }
+    
+    @media (max-width:540px) {
+      #course-card {
+        width: calc(100% - 100px);
+      }
+    }
+    
  }
  /* Contact-page */
  .contact-container {
@@ -329,4 +354,8 @@ background-color: #ccc;
 margin: 5px 10px;
 
 
+}
+.signup-container{
+ width: 50%;
+ margin:  auto;
 }
